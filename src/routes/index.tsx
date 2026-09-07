@@ -21,12 +21,16 @@ import localSanAntonio from "@/assets/locales/local-sanantonio.png";
 import localSogamoso from "@/assets/locales/local-sogamoso.jpeg";
 import localTunja from "@/assets/locales/local-tunja.jpeg";
 import logoGumarra from "@/assets/logo-gumarra.png";
+import colaboradorOperario1 from "@/assets/colaboradores/operario1.jpeg";
+import colaboradorOperario2 from "@/assets/colaboradores/operario2.jpeg";
+import colaboradorConductor1 from "@/assets/colaboradores/conductor1.jpeg";
+import colaboradorConductor2 from "@/assets/colaboradores/conductor2.jpeg";
 
-const WHATSAPP = "573000000000"; // TODO: reemplazar
-const TELEFONO = "+57 300 000 0000";
-const EMAIL = "contacto@lagumarracoloraa.com";
+const WHATSAPP = "57 3212325119"; // TODO: reemplazar
+const TELEFONO = "+57 3212325119";
+const EMAIL = "lagumarracoloraa01@gmail.com";
 const DIRECCION = "Duitama, Boyacá, Colombia";
-const HORARIO = "Lun–Sáb: 6:00 a.m. – 6:00 p.m.";
+const HORARIO = "Lun–Sáb: 8:00 a.m. – 6:00 p.m.";
 
 const waLink = (msg: string) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
@@ -257,10 +261,7 @@ function Empresa() {
       <div className="grid gap-10 md:grid-cols-2 md:items-center">
         <div>
           <p className="text-base leading-relaxed text-muted-foreground">
-            En <strong className="text-brand-black">La Gumarra Colora'a</strong> somos una empresa familiar
-            boyacense dedicada al procesamiento, comercialización y distribución de gallina criolla y gallina roja. Hemos
-            crecido junto a hogares, asaderos, restaurantes y supermercados que confían en nuestra frescura y
-            puntualidad.
+            En <strong className="text-brand-black">La Gumarra Colora'a</strong> lo que comenzó como un negocio familiar fue creciendo con el apoyo de nuestros clientes y el compromiso de nuestro equipo. Hoy seguimos trabajando para llevar productos de calidad a hogares y negocios de Boyacá.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
             Nuestra trayectoria nos posiciona como un aliado estratégico para quienes buscan calidad
@@ -302,29 +303,66 @@ function Empresa() {
 /* ---------------- PRODUCTOS ---------------- */
 function Productos() {
   const items = [
-    { img: prodEntera, t: "Gallina en canal", d: "Gallina criolla fresca completa, ideal para hogares y preparaciones tradicionales." },
-    { img: prodBeneficiada, t: "Gallina roja beneficiada", d: "Presa seleccionada y porcionada de gallina roja para una preparación rápida y rendidora." },
-    { img: prodRestaurante, t: "Productos para restaurantes", d: "Cortes y formatos pensados para asaderos, restaurantes y cocinas profesionales." },
-    { img: prodEventos, t: "Pedidos para eventos", d: "Abastecimiento para celebraciones, banquetes y eventos masivos en toda Boyacá." },
-    { img: prodMayorista, t: "Distribución mayorista", d: "Volúmenes y logística para tiendas, supermercados y distribuidores regionales." },
+    {
+      img: prodEntera,
+      t: "Gallina en canal",
+      d: "Gallina criolla fresca, seleccionada y lista para su preparación. Una opción ideal para hogares, restaurantes y preparaciones tradicionales que buscan conservar el sabor y la calidad del producto.",
+    },
+    {
+      img: prodBeneficiada,
+      t: "Gallina roja beneficiada",
+      d: "Gallina roja beneficiada y preparada para facilitar su manipulación y cocción. Una alternativa práctica y rendidora para hogares, restaurantes, asaderos y negocios de alimentos.",
+    },
+    {
+      img: prodRestaurante,
+      t: "Productos para restaurantes",
+      d: "Presentaciones y cortes pensados para restaurantes, asaderos y cocinas profesionales que necesitan un suministro constante de producto fresco y de calidad.",
+    },
+    {
+      img: prodEventos,
+      t: "Pedidos para eventos",
+      d: "Atendemos pedidos para celebraciones, reuniones, banquetes y eventos especiales, ofreciendo el abastecimiento necesario según la cantidad y las necesidades de cada ocasión.",
+    },
+    {
+      img: prodMayorista,
+      t: "Distribución mayorista",
+      d: "Suministro de productos para tiendas, supermercados, distribuidores y negocios de alimentos que requieren volumen, continuidad y una distribución confiable en Boyacá.",
+    },
   ];
+
   return (
-    <Section id="productos" eyebrow="Nuestros productos" title="Calidad en cada presentación" tone="muted">
+    <Section
+      id="productos"
+      eyebrow="Nuestros productos"
+      title="Calidad en cada presentación"
+      tone="muted"
+    >
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((p) => (
-          <article key={p.t} className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-transform hover:-translate-y-1">
+          <article
+            key={p.t}
+            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-transform hover:-translate-y-1"
+          >
             <div className="relative aspect-[4/3] overflow-hidden">
-              <img src={p.img} alt={p.t} loading="lazy" width={1024} height={1024} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img
+                src={p.img}
+                alt={p.t}
+                loading="lazy"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </div>
+
             <div className="flex flex-1 flex-col p-5">
-              <h3 className="font-display text-lg font-bold text-brand-black">{p.t}</h3>
-              <p className="mt-2 flex-1 text-sm text-muted-foreground">{p.d}</p>
-              <a
-                href={waLink(`Hola, me interesa el producto: ${p.t}. ¿Pueden enviarme información?`)}
-                className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full bg-brand-red/10 px-4 py-2 text-sm font-semibold text-brand-red transition-colors hover:bg-brand-red hover:text-white"
-              >
-                <MessageCircle size={14} /> Contactar
-              </a>
+              <h3 className="font-display text-lg font-bold text-brand-black">
+                {p.t}
+              </h3>
+
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                {p.d}
+              </p>
+
             </div>
           </article>
         ))}
@@ -336,17 +374,38 @@ function Productos() {
 /* ---------------- COBERTURA ---------------- */
 function Cobertura() {
   const municipios = [
-    "Duitama", "Tunja", "Sogamoso", "Paipa", "Nobsa", "Tibasosa", "Santa Rosa de Viterbo",
-    "Belén", "Cerinza", "Floresta", "Corrales", "Iza", "Mongua", "Aquitania",
-    "Chiquinquirá", "Moniquirá", "Villa de Leyva", "Samacá", "Ramiriquí", "Garagoa",
+    "Duitama",
+    "Tunja",
+    "Sogamoso",
+    "Paipa",
+    "Nobsa",
+    "Tibasosa",
+    "Santa Rosa de Viterbo",
+    "Belén",
+    "Cerinza",
+    "Floresta",
+    "Corrales",
+    "Iza",
+    "Mongua",
+    "Aquitania",
+    "Chiquinquirá",
+    "Moniquirá",
+    "Villa de Leyva",
+    "Samacá",
+    "Ramiriquí",
+    "Garagoa",
   ];
 
   return (
-    <Section id="cobertura" eyebrow="Cobertura" title="Presentes en todo Boyacá">
+    <Section
+      id="cobertura"
+      eyebrow="Cobertura"
+      title="Presentes en todo Boyacá"
+    >
       <div className="grid gap-8 lg:grid-cols-5">
+        {/* MAPA */}
         <div className="lg:col-span-3">
           <div className="overflow-hidden rounded-3xl border border-border shadow-soft">
-            {/* 👇 MAPA APUNTANDO A LA GUMARRA COLORA'A EN DUITAMA */}
             <iframe
               title="La Gumarra Colora'a - Duitama"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.123456789!2d-73.025358!3d5.8440065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e6a3f6ab289c339%3A0x8df7e04dc477edbe!2sLa%20Gumarra%20Colora'a!5e0!3m2!1ses!2sco!4v1712345678901"
@@ -356,28 +415,65 @@ function Cobertura() {
               allowFullScreen
             />
           </div>
+
           <div className="mt-2 text-center text-xs text-muted-foreground">
             📍 La Gumarra Colora'a - Duitama, Boyacá
           </div>
         </div>
+
+        {/* INFORMACIÓN DE COBERTURA */}
         <div className="lg:col-span-2">
-          <p className="text-base text-muted-foreground">
-            Nuestra red logística llega a los principales municipios del departamento, con entregas
-            programadas y atención personalizada en cada ruta.
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Contamos con una red de distribución que nos permite llevar
+            nuestros productos a diferentes municipios de Boyacá. Atendemos
+            hogares, restaurantes, asaderos, comercios y distribuidores,
+            adaptándonos a las necesidades de cada cliente y ruta.
           </p>
-          <div className="mt-6 grid grid-cols-2 gap-1.5">
-            {municipios.map((m) => (
-              <div key={m} className="flex items-center gap-1.5 rounded-lg bg-brand-gray px-2.5 py-1.5">
-                <MapPin size={12} className="text-brand-red shrink-0" />
-                <span className="text-xs font-medium text-brand-black truncate">{m}</span>
-              </div>
-            ))}
+
+          {/* MUNICIPIOS */}
+          <div className="mt-6">
+            <h3 className="text-sm font-semibold text-brand-black">
+              Municipios donde tenemos presencia
+            </h3>
+
+            <div className="mt-3 grid grid-cols-2 gap-1.5">
+              {municipios.map((m) => (
+                <div
+                  key={m}
+                  className="flex items-center gap-1.5 rounded-lg bg-brand-gray px-2.5 py-1.5"
+                >
+                  <MapPin
+                    size={12}
+                    className="shrink-0 text-brand-red"
+                  />
+
+                  <span className="truncate text-xs font-medium text-brand-black">
+                    {m}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* CARACTERÍSTICAS DE LA DISTRIBUCIÓN */}
           <div className="mt-6 flex flex-wrap gap-2">
-            <Badge icon={Truck}>Flota refrigerada</Badge>
-            <Badge icon={Clock}>Entregas puntuales</Badge>
-            <Badge icon={ShieldCheck}>Trazabilidad total</Badge>
-          </div>
+  <div className="inline-flex items-center gap-1.5 rounded-full bg-brand-gray px-3 py-2 text-xs font-semibold text-brand-black">
+    <Truck size={14} className="text-brand-red" />
+    Flota refrigerada
+  </div>
+
+  <div className="inline-flex items-center gap-1.5 rounded-full bg-brand-gray px-3 py-2 text-xs font-semibold text-brand-black">
+    <Clock size={14} className="text-brand-red" />
+    Entregas puntuales
+  </div>
+
+  <div className="inline-flex items-center gap-1.5 rounded-full bg-brand-gray px-3 py-2 text-xs font-semibold text-brand-black">
+    <ShieldCheck size={14} className="text-brand-red" />
+    Trazabilidad total
+  </div>
+</div>
+
+          {/* GOOGLE MAPS */}
           <div className="mt-4">
             <a
               href="https://www.google.com/maps/place/La+Gumarra+Colora'a/@5.8440065,-73.025358,17.5z/data=!4m6!3m5!1s0x8e6a3f6ab289c339:0x8df7e04dc477edbe!8m2!3d5.8441081!4d-73.0235327!16s%2Fg%2F11rhr3c9hz?entry=ttu"
@@ -385,7 +481,8 @@ function Cobertura() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-red hover:underline"
             >
-              <MapPin size={14} /> Ver ubicación en Google Maps
+              <MapPin size={14} />
+              Ver ubicación en Google Maps
             </a>
           </div>
         </div>
@@ -406,7 +503,7 @@ function Badge({ icon: Icon, children }: { icon: any; children: React.ReactNode 
 function Proceso() {
   const steps = [
     { icon: ClipboardCheck, t: "Selección", d: "Elegimos ejemplares de calidad bajo estrictos criterios sanitarios." },
-    { icon: ShieldCheck, t: "Beneficio", d: "Sacrificio y beneficio controlados con buenas prácticas." },
+    { icon: ShieldCheck, t: "Beneficio", d: "Benefecio y beneficio controlados con buenas prácticas." },
     { icon: Factory, t: "Procesamiento", d: "Cortes y porcionado en planta con equipos profesionales." },
     { icon: Package, t: "Empaque", d: "Empaque higiénico que conserva frescura y calidad." },
     { icon: Truck, t: "Distribución", d: "Logística refrigerada hacia cada destino en Boyacá." },
@@ -461,23 +558,67 @@ function Calidad() {
 /* ---------------- CLIENTES ---------------- */
 function Clientes() {
   const items = [
-    { icon: Utensils, t: "Restaurantes" },
-    { icon: Building2, t: "Asaderos" },
-    { icon: Store, t: "Supermercados" },
-    { icon: ShoppingBag, t: "Tiendas" },
-    { icon: Truck, t: "Distribuidores" },
-    { icon: PartyPopper, t: "Eventos" },
-    { icon: Landmark, t: "Instituciones" },
+    {
+      icon: Utensils,
+      t: "Restaurantes",
+      d: "Producto fresco y de calidad para preparar tus platos y ofrecer a tus clientes el mejor sabor.",
+    },
+    {
+      icon: Building2,
+      t: "Asaderos",
+      d: "Abastecimiento confiable de productos seleccionados para mantener la calidad y continuidad de tu negocio.",
+    },
+    {
+      icon: Store,
+      t: "Supermercados",
+      d: "Productos frescos y seleccionados para ampliar tu oferta y brindar opciones de calidad a tus clientes.",
+    },
+    {
+      icon: ShoppingBag,
+      t: "Tiendas",
+      d: "Una alternativa de calidad para complementar tu oferta y atender las necesidades de tus clientes.",
+    },
+    {
+      icon: Truck,
+      t: "Distribuidores",
+      d: "Suministro organizado y confiable para quienes buscan ampliar su cobertura y atender diferentes mercados.",
+    },
+    {
+      icon: PartyPopper,
+      t: "Eventos",
+      d: "Pedidos especiales para celebraciones, reuniones y eventos que necesitan productos frescos y de calidad.",
+    },
+    {
+      icon: Landmark,
+      t: "Instituciones",
+      d: "Atención de pedidos para instituciones que requieren productos de calidad y un proveedor confiable.",
+    },
   ];
+
   return (
-    <Section id="clientes" eyebrow="Clientes que atendemos" title="Aliados estratégicos en cada sector" tone="muted">
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
+    <Section
+      id="clientes"
+      eyebrow="Clientes que atendemos"
+      title="Estamos donde nos necesitas"
+      tone="muted"
+    >
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {items.map((c) => (
-          <div key={c.t} className="flex flex-col items-center gap-2 rounded-2xl border border-border bg-card p-5 text-center shadow-soft transition-colors hover:border-brand-red">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
+          <div
+            key={c.t}
+            className="flex flex-col items-center gap-3 rounded-2xl border border-border bg-card p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-brand-red hover:shadow-md"
+          >
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
               <c.icon size={22} />
             </div>
-            <div className="text-sm font-semibold text-brand-black">{c.t}</div>
+
+            <div className="text-sm font-semibold text-brand-black">
+              {c.t}
+            </div>
+
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              {c.d}
+            </p>
           </div>
         ))}
       </div>
@@ -537,29 +678,31 @@ function Testimonios() {
 /* ---------------- COLABORADORES ---------------- */
 function Colaboradores() {
   const colaboradores = [
-    {
-      nombre: "Juan Pérez",
+      {
+      nombre: "Dario Rico",
       rol: "Operario de planta",
-      foto: "/src/assets/colaboradores/operario1.jpeg", // Cambia por la foto real
-      descripcion: "Manos expertas dedicadas a garantizar la máxima calidad y frescura de nuestra gallina criolla."
+      foto: colaboradorOperario1,
+      descripcion:
+        "Siempre dispuesto a garantizar la calidad de nuestros productos y la eficiencia en el proceso de producción.",
     },
     {
-      nombre: "María Rodríguez",
-      rol: "Conductora de distribución",
-      foto: "/src/assets/colaboradores/conductor1.jpeg",
-      descripcion: "Llevando gallina roja fresca a toda Boyacá"
+      nombre: "Mireya Ronderos",
+      rol: "Operario de planta",
+      foto: colaboradorConductor1,
+      descripcion: "atenta y compprometida con la displina y la seguridad en el trabajo, asegurando que cada gallina cumpla con los estándares de calidad.",
     },
     {
-      nombre: "Carlos Martínez",
-      rol: "Operario de procesamiento",
-      foto: "/src/assets/colaboradores/operario2.jpeg",
-      descripcion: "Seleccionando la mejor gallina en canal para nuestros clientes"
+      nombre: "Jairo Higuera",
+      rol: "Conduntor de entregas",
+      foto: colaboradorOperario2,
+      descripcion:
+        "entregado a la puntualidad y al cuidado de los productos durante el transporte, asegurando que lleguen frescos a nuestros clientes.",
     },
     {
-      nombre: "Ana Gómez",
-      rol: "Conductora de entregas",
-      foto: "/src/assets/colaboradores/conductor2.jpeg",
-      descripcion: "Entregas puntuales con la mejor atención"
+      nombre: "Paola Ronderos",
+      rol: "Operario de planta",
+      foto: colaboradorConductor2,
+      descripcion: "detallista y comprometida con la higiene y el control de calidad, garantizando que cada gallina cumpla con los estándares de la empresa.",
     },
   ];
 
@@ -598,10 +741,10 @@ function Locales() {
     {
       nombre: "Gallinalandia Duitama - Mercaplaza",
       direccion: "CLL 11 #21-18 Mercaplaza, Duitama",
-      telefono: "+57 313 123 4567",
+      telefono: "+57 3133276415",
       horario: "Lun–Sáb: 6:00 a.m. – 6:00 p.m.",
       icono: "🐔",
-      whatsapp: "573131234567",
+      whatsapp: "573133276415",
       imagen: localMercaplaza,
       lat: 5.8217186,
       lng: -73.0343088
@@ -609,10 +752,10 @@ function Locales() {
     {
       nombre: "Gallinalandia Duitama - San Antonio",
       direccion: "Vereda San Antonio norte sec 4 esquinas, Duitama",
-      telefono: "+57 313 3276415",
+      telefono: "+57 3003563287",
       horario: "Lun–Sáb: 6:00 a.m. – 6:00 p.m.",
       icono: "🐔",
-      whatsapp: "573133276415",
+      whatsapp: "573003563287",
       imagen: localSanAntonio,
       lat: 5.8441081,
       lng: -73.0235327
@@ -620,7 +763,7 @@ function Locales() {
     {
       nombre: "Gallinalandia Sogamoso",
       direccion: "CLL 12 #18-90, Sogamoso",
-      telefono: "+57 322 8982586",
+      telefono: "+57 3228982586",
       horario: "Lun–Sáb: 6:00 a.m. – 6:00 p.m.",
       icono: "🐔",
       whatsapp: "573228982586",
@@ -631,7 +774,7 @@ function Locales() {
     {
       nombre: "Gallinalandia Tunja",
       direccion: "Kr 14 #04-08, Tunja",
-      telefono: "+57 318 6668696",
+      telefono: "+57 3186668696",
       horario: "Lun–Sáb: 6:00 a.m. – 6:00 p.m.",
       icono: "🐔",
       whatsapp: "573186668696",
