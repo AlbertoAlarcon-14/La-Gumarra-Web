@@ -26,7 +26,7 @@ import colaboradorOperario2 from "@/assets/colaboradores/operario2.jpeg";
 import colaboradorConductor1 from "@/assets/colaboradores/conductor1.jpeg";
 import colaboradorConductor2 from "@/assets/colaboradores/conductor2.jpeg";
 
-const WHATSAPP = "57 3212325119"; // TODO: reemplazar
+const WHATSAPP = "573212325119"; // TODO: reemplazar
 const TELEFONO = "+57 3212325119";
 const EMAIL = "lagumarracoloraa01@gmail.com";
 const DIRECCION = "Duitama, Boyacá, Colombia";
@@ -363,6 +363,14 @@ function Productos() {
                 {p.d}
               </p>
 
+              <a
+                href={waLink(
+                  `Hola, me interesa el producto: ${p.t}. ¿Pueden enviarme información?`
+                )}
+                className="mt-4 inline-flex items-center gap-1.5 self-start rounded-full bg-brand-red/10 px-4 py-2 text-sm font-semibold text-brand-red transition-colors hover:bg-brand-red hover:text-white"
+              >
+                <MessageCircle size={14} /> Contactar
+              </a>
             </div>
           </article>
         ))}
