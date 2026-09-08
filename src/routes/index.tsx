@@ -99,6 +99,7 @@ function HomePage() {
       <Testimonios />
       <Colaboradores />
       <Locales /> 
+      <CTAFinal />
       <Contacto />
       <Footer />
       <FloatingWhats />
@@ -637,20 +638,83 @@ function Clientes() {
 /* ---------------- GALERIA ---------------- */
 function Galeria() {
   const imgs = [
-    { src: galPlant, alt: "Planta de procesamiento" },
-    { src: galTruck, alt: "Vehículos de distribución" },
-    { src: galFarm, alt: "Granja avícola" },
-    { src: galQuality, alt: "Control de calidad" },
-    { src: prodEntera, alt: "Gallina entera" },
-    { src: prodEventos, alt: "Servicio para eventos" },
+    {
+      src: galPlant,
+      alt: "Planta de procesamiento de La Gumarra Colora'a",
+      title: "Nuestra planta",
+      description:
+        "Un espacio dedicado al procesamiento y manejo de nuestros productos.",
+    },
+    {
+      src: galTruck,
+      alt: "Vehículo de distribución de La Gumarra Colora'a",
+      title: "Distribución",
+      description:
+        "Llevamos nuestros productos a diferentes municipios de Boyacá.",
+    },
+    {
+      src: galFarm,
+      alt: "Granja avícola",
+      title: "Nuestro origen",
+      description:
+        "Trabajamos con productos seleccionados para ofrecer calidad y frescura.",
+    },
+    {
+      src: galQuality,
+      alt: "Control de calidad de los productos",
+      title: "Control de calidad",
+      description:
+        "Cuidamos cada etapa del proceso para garantizar un producto confiable.",
+    },
+    {
+      src: prodEntera,
+      alt: "Gallina en canal",
+      title: "Nuestros productos",
+      description:
+        "Productos preparados para hogares, restaurantes y negocios de alimentos.",
+    },
+    {
+      src: prodEventos,
+      alt: "Productos para eventos",
+      title: "Atención para eventos",
+      description:
+        "También atendemos pedidos especiales para celebraciones y eventos.",
+    },
   ];
+
   return (
-    <Section id="galeria" eyebrow="Galería" title="Conoce nuestras instalaciones y procesos">
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-        {imgs.map((g, i) => (
-          <div key={i} className={`overflow-hidden rounded-2xl shadow-soft ${i === 0 ? "col-span-2 row-span-2" : ""}`}>
-            <img src={g.src} alt={g.alt} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 hover:scale-105" width={1024} height={1024} />
-          </div>
+    <Section
+      id="galeria"
+      eyebrow="Así trabajamos"
+      title="Conoce nuestro trabajo"
+    >
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {imgs.map((g) => (
+          <article
+            key={g.title}
+            className="group overflow-hidden rounded-2xl border border-border bg-card shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <img
+                src={g.src}
+                alt={g.alt}
+                loading="lazy"
+                width={1024}
+                height={768}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+
+            <div className="p-5">
+              <h3 className="font-display text-lg font-bold text-brand-black">
+                {g.title}
+              </h3>
+
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {g.description}
+              </p>
+            </div>
+          </article>
         ))}
       </div>
     </Section>
@@ -686,57 +750,78 @@ function Testimonios() {
 /* ---------------- COLABORADORES ---------------- */
 function Colaboradores() {
   const colaboradores = [
-      {
+    {
       nombre: "Dario Rico",
       rol: "Operario de planta",
       foto: colaboradorOperario1,
       descripcion:
-        "Siempre dispuesto a garantizar la calidad de nuestros productos y la eficiencia en el proceso de producción.",
+        "Siempre dispuesto a garantizar la calidad de nuestros productos y la eficiencia en cada etapa del proceso.",
     },
     {
       nombre: "Mireya Ronderos",
-      rol: "Operario de planta",
+      rol: "Operaria de planta",
       foto: colaboradorConductor1,
-      descripcion: "atenta y compprometida con la displina y la seguridad en el trabajo, asegurando que cada gallina cumpla con los estándares de calidad.",
+      descripcion:
+        "Atenta y comprometida con la disciplina y la seguridad en el trabajo, contribuyendo a mantener nuestros estándares de calidad.",
     },
     {
       nombre: "Jairo Higuera",
-      rol: "Conduntor de entregas",
+      rol: "Conductor de entregas",
       foto: colaboradorOperario2,
       descripcion:
-        "entregado a la puntualidad y al cuidado de los productos durante el transporte, asegurando que lleguen frescos a nuestros clientes.",
+        "Comprometido con la puntualidad y el cuidado de los productos durante el transporte, procurando que lleguen frescos a nuestros clientes.",
     },
     {
       nombre: "Paola Ronderos",
-      rol: "Operario de planta",
+      rol: "Operaria de planta",
       foto: colaboradorConductor2,
-      descripcion: "detallista y comprometida con la higiene y el control de calidad, garantizando que cada gallina cumpla con los estándares de la empresa.",
+      descripcion:
+        "Detallista y comprometida con la higiene y el control de calidad, cuidando cada etapa del proceso para ofrecer productos confiables.",
     },
   ];
 
   return (
-    <Section id="colaboradores" eyebrow="Nuestro equipo" title="Las personas detrás de La Gumarra" tone="muted">
-      <p className="mb-10 max-w-3xl text-base text-muted-foreground">
-        Detrás de cada entrega de gallina criolla y gallina roja hay un equipo de personas comprometidas
-        con la calidad y el servicio. Conoce a nuestros operarios y conductores, el corazón de nuestra empresa.
+    <Section
+      id="colaboradores"
+      eyebrow="Nuestro equipo"
+      title="Las personas detrás de La Gumarra"
+      tone="muted"
+    >
+      <p className="mb-10 max-w-3xl text-base leading-relaxed text-muted-foreground">
+        Detrás de cada pedido y cada entrega hay un equipo de personas
+        comprometidas con la calidad, el cuidado de nuestros productos y la
+        atención a nuestros clientes. Conoce a quienes hacen posible el trabajo
+        diario de La Gumarra Colora'a.
       </p>
+
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {colaboradores.map((c) => (
-          <div key={c.nombre} className="group rounded-2xl border border-border bg-card p-6 text-center shadow-soft transition-transform hover:-translate-y-1">
+          <div
+            key={c.nombre}
+            className="group rounded-2xl border border-border bg-card p-6 text-center shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+          >
             <div className="mx-auto h-60 w-60 overflow-hidden rounded-full border-4 border-brand-red/20 shadow-md">
               <img
                 src={c.foto}
-                alt={c.nombre}
-                className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                onError={(e) => {
-                  // Si la imagen no carga, muestra un placeholder
-                  (e.target as HTMLImageElement).src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100"%3E%3Crect fill="%23e5e7eb" width="100" height="100"/%3E%3Ctext x="50" y="50" text-anchor="middle" dy=".3em" fill="%236b7280" font-family="sans-serif" font-size="10"%3E📸%3C/text%3E%3C/svg%3E';
-                }}
+                alt={`${c.nombre} - ${c.rol}`}
+                loading="lazy"
+                width={400}
+                height={400}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
-            <h3 className="mt-4 font-display text-lg font-bold text-brand-black">{c.nombre}</h3>
-            <div className="text-sm font-semibold text-brand-red">{c.rol}</div>
-            <p className="mt-2 text-sm text-muted-foreground">{c.descripcion}</p>
+
+            <h3 className="mt-5 font-display text-lg font-bold text-brand-black">
+              {c.nombre}
+            </h3>
+
+            <div className="mt-1 text-sm font-semibold text-brand-red">
+              {c.rol}
+            </div>
+
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {c.descripcion}
+            </p>
           </div>
         ))}
       </div>
@@ -865,6 +950,60 @@ function Locales() {
     </Section>
   );
 }
+function CTAFinal() {
+  return (
+    <section className="bg-brand-red py-16 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="text-sm font-semibold uppercase tracking-wider text-white/80">
+            Estamos para atenderte
+          </span>
+
+          <h2 className="mt-3 font-display text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+            ¿Necesitas hacer un pedido?
+          </h2>
+
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/90 md:text-lg">
+            Cuéntanos qué necesitas y nuestro equipo te brindará información
+            sobre nuestros productos, pedidos y opciones de distribución.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              🐔 Productos frescos
+            </div>
+
+            <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              📦 Pedidos
+            </div>
+
+            <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              🚚 Distribución
+            </div>
+
+            <div className="rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm">
+              💬 Atención directa
+            </div>
+          </div>
+
+          <div className="mt-9">
+            <a
+              href={waLink(
+                "Hola, quiero hacer un pedido. ¿Podrían brindarme información sobre sus productos?"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-bold text-brand-red shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+            >
+              <MessageCircle size={20} />
+              Hablar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 /* ---------------- CONTACTO ---------------- */
 function Contacto() {
   const [form, setForm] = useState({ nombre: "", empresa: "", telefono: "", correo: "", solicitud: "" });
@@ -985,7 +1124,7 @@ function Footer() {
           <h4 className="font-display text-sm font-bold uppercase tracking-wider text-brand-gold">Síguenos</h4>
           <div className="mt-4 flex gap-3">
             <SocialBtn icon={Facebook} href="https://www.facebook.com/p/La-Gumarra-Colora-100064042364436/" />
-            <SocialBtn icon={Instagram} href="#" />
+          
             <SocialBtn icon={MessageCircle} href={waLink("Hola")} />
           </div>
         </div>
